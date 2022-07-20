@@ -14,7 +14,7 @@ const RPC_MODULE = "AQDaEPIo_lpdvz7AKbeafERBHR331RiyvweJ6OrFTplzyg";
 let callModule: typeof callModuleModule,
   connectModule: typeof connectModuleModule;
 
-if (window.document) {
+if (typeof window !== "undefined" && window?.document) {
   callModule = callModuleKernel;
   connectModule = connectModuleKernel;
 } else {
