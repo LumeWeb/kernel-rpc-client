@@ -22,23 +22,29 @@ if (typeof window !== "undefined" && window?.document) {
   connectModule = connectModuleModule;
 }
 
+type PromiseCB = () => Promise<ErrTuple>;
+
 export class RpcNetwork {
-  private _actionQueue: Promise<ErrTuple>[] = [];
+  private _actionQueue: PromiseCB[] = [];
 
   get ready(): Promise<ErrTuple> {
     return callModule(RPC_MODULE, "ready");
   }
 
   public addRelay(pubkey: string): void {
-    this._actionQueue.push(callModule(RPC_MODULE, "addRelay", { pubkey }));
+    this._actionQueue.push(() =>
+      callModule(RPC_MODULE, "addRelay", { pubkey })
+    );
   }
 
   public removeRelay(pubkey: string): void {
-    this._actionQueue.push(callModule(RPC_MODULE, "removeRelay", { pubkey }));
+    this._actionQueue.push(() =>
+      callModule(RPC_MODULE, "removeRelay", { pubkey })
+    );
   }
 
   public clearRelays(): void {
-    this._actionQueue.push(callModule(RPC_MODULE, "clearRelays"));
+    this._actionQueue.push(() => callModule(RPC_MODULE, "clearRelays"));
   }
 
   public query(
@@ -56,9 +62,9 @@ export class RpcNetwork {
   }
 
   public async processQueue(): Promise<void> {
-    for (const promise in this._actionQueue) {
+    for (const promise of this._actionQueue) {
       try {
-        await promise;
+        await promise();
       } catch (e: any) {}
     }
 
