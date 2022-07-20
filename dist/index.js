@@ -35,7 +35,8 @@ export class RpcNetwork {
     async processQueue() {
         for (const promise of this._actionQueue) {
             try {
-                await promise();
+                const p = promise();
+                await p;
             }
             catch (e) { }
         }
