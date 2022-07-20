@@ -2,7 +2,7 @@ import { callModule as callModuleKernel, connectModule as connectModuleKernel, }
 import { callModule as callModuleModule, connectModule as connectModuleModule, } from "libkmodule";
 const RPC_MODULE = "AQDaEPIo_lpdvz7AKbeafERBHR331RiyvweJ6OrFTplzyg";
 let callModule, connectModule;
-if (window.document) {
+if (typeof window !== "undefined" && window?.document) {
     callModule = callModuleKernel;
     connectModule = connectModuleKernel;
 }
@@ -37,8 +37,7 @@ export class RpcNetwork {
             try {
                 await promise;
             }
-            catch (e) {
-            }
+            catch (e) { }
         }
         this._actionQueue = [];
     }
