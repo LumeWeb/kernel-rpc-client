@@ -62,7 +62,7 @@ export class RpcNetwork {
   }
 
   public async processQueue(): Promise<void> {
-    for (const promise of this._actionQueue.reverse()) {
+    for (const promise of this._actionQueue) {
       try {
         const p = promise();
         await p;
