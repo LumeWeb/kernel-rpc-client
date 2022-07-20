@@ -33,7 +33,13 @@ export class RpcNetwork {
         });
     }
     async processQueue() {
-        await Promise.allSettled(this._actionQueue);
+        for (const promise in this._actionQueue) {
+            try {
+                await promise;
+            }
+            catch (e) {
+            }
+        }
         this._actionQueue = [];
     }
 }
