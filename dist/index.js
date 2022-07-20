@@ -33,7 +33,7 @@ export class RpcNetwork {
         });
     }
     async processQueue() {
-        for (const promise of this._actionQueue.reverse()) {
+        for (const promise of this._actionQueue) {
             try {
                 const p = promise();
                 await p;
