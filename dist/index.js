@@ -16,13 +16,13 @@ export class RpcNetwork {
         return callModule(RPC_MODULE, "ready");
     }
     addRelay(pubkey) {
-        this._actionQueue.push(callModule(RPC_MODULE, "addRelay", { pubkey }));
+        this._actionQueue.push(() => callModule(RPC_MODULE, "addRelay", { pubkey }));
     }
     removeRelay(pubkey) {
-        this._actionQueue.push(callModule(RPC_MODULE, "removeRelay", { pubkey }));
+        this._actionQueue.push(() => callModule(RPC_MODULE, "removeRelay", { pubkey }));
     }
     clearRelays() {
-        this._actionQueue.push(callModule(RPC_MODULE, "clearRelays"));
+        this._actionQueue.push(() => callModule(RPC_MODULE, "clearRelays"));
     }
     query(query, chain, data = {}, force = false) {
         return new RpcQuery(this, {
@@ -33,9 +33,9 @@ export class RpcNetwork {
         });
     }
     async processQueue() {
-        for (const promise in this._actionQueue) {
+        for (const promise of this._actionQueue) {
             try {
-                await promise;
+                await promise();
             }
             catch (e) { }
         }
