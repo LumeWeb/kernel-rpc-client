@@ -1,50 +1,59 @@
-import {
-  callModule as callModuleKernel,
-  connectModule as connectModuleKernel,
-} from "libkernel";
-import {
-  callModule as callModuleModule,
-  connectModule as connectModuleModule,
-} from "libkmodule";
 import { ErrTuple } from "libskynet";
 import type { RPCRequest } from "@lumeweb/dht-rpc-client";
 
 const RPC_MODULE = "AQDaEPIo_lpdvz7AKbeafERBHR331RiyvweJ6OrFTplzyg";
 
-let callModule: typeof callModuleModule,
-  connectModule: typeof connectModuleModule;
+let callModule: any, connectModule: any;
 
-if (typeof window !== "undefined" && window?.document) {
-  callModule = callModuleKernel;
-  connectModule = connectModuleKernel;
-} else {
-  callModule = callModuleModule;
-  connectModule = connectModuleModule;
+async function loadLibs() {
+  if (callModule && connectModule) {
+    return;
+  }
+
+  if (typeof window !== "undefined" && window?.document) {
+    const pkg = await import("libkernel");
+    callModule = pkg.callModule;
+    connectModule = pkg.connectModule;
+  } else {
+    const pkg = await import("libkmodule");
+    callModule = pkg.callModule;
+    connectModule = pkg.connectModule;
+  }
 }
 
 type PromiseCB = () => Promise<ErrTuple>;
 
 export class RpcNetwork {
-  private _actionQueue: PromiseCB[] = [];
+  private _actionQueue: [string, any][] = [];
+  private _addQueue: string[] = [];
+  private _removeQueue: string[] = [];
 
   get ready(): Promise<ErrTuple> {
-    return callModule(RPC_MODULE, "ready");
+    return loadLibs().then(() => callModule(RPC_MODULE, "ready"));
   }
 
   public addRelay(pubkey: string): void {
-    this._actionQueue.push(() =>
-      callModule(RPC_MODULE, "addRelay", { pubkey })
-    );
+    this._addQueue.push(pubkey);
+    this._addQueue = [...new Set(this._addQueue)];
+    RpcNetwork.deleteItem(this._removeQueue, pubkey);
   }
 
   public removeRelay(pubkey: string): void {
-    this._actionQueue.push(() =>
-      callModule(RPC_MODULE, "removeRelay", { pubkey })
-    );
+    this._removeQueue.push(pubkey);
+    this._removeQueue = [...new Set(this._removeQueue)];
+    RpcNetwork.deleteItem(this._addQueue, pubkey);
   }
 
   public clearRelays(): void {
-    this._actionQueue.push(() => callModule(RPC_MODULE, "clearRelays"));
+    this._actionQueue.push(["clearRelays", {}]);
+  }
+
+  private static deleteItem(array: Array<any>, item: string): void {
+    if (array.includes(item)) {
+      let queue = new Set(array);
+      queue.delete(item);
+      array = [...queue];
+    }
   }
 
   public query(
@@ -62,14 +71,27 @@ export class RpcNetwork {
   }
 
   public async processQueue(): Promise<void> {
-    for (const promise of this._actionQueue) {
+    await loadLibs();
+    for (const action of this._actionQueue) {
       try {
-        const p = promise();
-        await p;
+        await callModule(RPC_MODULE, action[0], action[1]);
       } catch (e: any) {}
     }
 
+    await Promise.allSettled(
+      this._removeQueue.map((item: string) =>
+        callModule(RPC_MODULE, "removeRelay", { pubkey: item })
+      )
+    );
+    await Promise.allSettled(
+      this._addQueue.map((item: string) =>
+        callModule(RPC_MODULE, "addRelay", { pubkey: item })
+      )
+    );
+
     this._actionQueue = [];
+    this._removeQueue = [];
+    this._addQueue = [];
   }
 }
 
