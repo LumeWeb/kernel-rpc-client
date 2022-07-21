@@ -1,28 +1,46 @@
-import { callModule as callModuleKernel, connectModule as connectModuleKernel, } from "libkernel";
-import { callModule as callModuleModule, connectModule as connectModuleModule, } from "libkmodule";
 const RPC_MODULE = "AQDaEPIo_lpdvz7AKbeafERBHR331RiyvweJ6OrFTplzyg";
 let callModule, connectModule;
-if (typeof window !== "undefined" && window?.document) {
-    callModule = callModuleKernel;
-    connectModule = connectModuleKernel;
-}
-else {
-    callModule = callModuleModule;
-    connectModule = connectModuleModule;
+async function loadLibs() {
+    if (callModule && connectModule) {
+        return;
+    }
+    if (typeof window !== "undefined" && window?.document) {
+        const pkg = await import("libkernel");
+        callModule = pkg.callModule;
+        connectModule = pkg.connectModule;
+    }
+    else {
+        const pkg = await import("libkmodule");
+        callModule = pkg.callModule;
+        connectModule = pkg.connectModule;
+    }
 }
 export class RpcNetwork {
     _actionQueue = [];
+    _addQueue = [];
+    _removeQueue = [];
     get ready() {
-        return callModule(RPC_MODULE, "ready");
+        return loadLibs().then(() => callModule(RPC_MODULE, "ready"));
     }
     addRelay(pubkey) {
-        this._actionQueue.push(() => callModule(RPC_MODULE, "addRelay", { pubkey }));
+        this._addQueue.push(pubkey);
+        this._addQueue = [...new Set(this._addQueue)];
+        RpcNetwork.deleteItem(this._removeQueue, pubkey);
     }
     removeRelay(pubkey) {
-        this._actionQueue.push(() => callModule(RPC_MODULE, "removeRelay", { pubkey }));
+        this._removeQueue.push(pubkey);
+        this._removeQueue = [...new Set(this._removeQueue)];
+        RpcNetwork.deleteItem(this._addQueue, pubkey);
     }
     clearRelays() {
-        this._actionQueue.push(() => callModule(RPC_MODULE, "clearRelays"));
+        this._actionQueue.push(["clearRelays", {}]);
+    }
+    static deleteItem(array, item) {
+        if (array.includes(item)) {
+            let queue = new Set(array);
+            queue.delete(item);
+            array = [...queue];
+        }
     }
     query(query, chain, data = {}, force = false) {
         return new RpcQuery(this, {
@@ -33,14 +51,18 @@ export class RpcNetwork {
         });
     }
     async processQueue() {
-        for (const promise of this._actionQueue) {
+        await loadLibs();
+        for (const action of this._actionQueue) {
             try {
-                const p = promise();
-                await p;
+                await callModule(RPC_MODULE, action[0], action[1]);
             }
             catch (e) { }
         }
+        await Promise.allSettled(this._removeQueue.map((item) => callModule(RPC_MODULE, "removeRelay", { pubkey: item })));
+        await Promise.allSettled(this._addQueue.map((item) => callModule(RPC_MODULE, "addRelay", { pubkey: item })));
         this._actionQueue = [];
+        this._removeQueue = [];
+        this._addQueue = [];
     }
 }
 export class RpcQuery {
