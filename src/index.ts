@@ -52,7 +52,7 @@ export class RpcNetwork {
     if (array.includes(item)) {
       let queue = new Set(array);
       queue.delete(item);
-      array = [...queue];
+        [].splice.apply(array, [0, array.length].concat([...queue]));
     }
   }
 
