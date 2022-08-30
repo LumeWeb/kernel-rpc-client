@@ -3,9 +3,9 @@
 
 
 "@hyperswarm/dht@^6.0.1":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@hyperswarm/dht/-/dht-6.2.0.tgz#b2cb1218752b52fabb66f304e73448a108d1effd"
-  integrity sha512-AeyfRdAkfCz/J3vTC4rdpzEpT7xQ+tls87Zpzw9Py3VGUZD8hMT7pr43OOdkCBNvcln6K/5/Lxhnq5lBkzH3yw==
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@hyperswarm/dht/-/dht-6.2.1.tgz#5f9942dcf9603d3d85e5c3ddf1f7a964afbebc69"
+  integrity sha512-UsDpb8A0jlN4uEft3Jwbc44lsdfxPGTAB9fLHNWY8wp1XHkHAYLLc/JIvqo07rgQSm8gQIXZJ2EDs7e9sKvdHQ==
   dependencies:
     "@hyperswarm/secret-stream" "^6.0.0"
     b4a "^1.3.1"
@@ -40,41 +40,41 @@
 
 "@lumeweb/dht-rpc-client@https://github.com/LumeWeb/dht-rpc-client.git":
   version "0.1.0"
-  resolved "https://github.com/LumeWeb/dht-rpc-client.git#7d0bf7a538dbfbc62f36cceb6627cdd398b841b1"
+  resolved "https://github.com/LumeWeb/dht-rpc-client.git#c750fce402d98f14cb8885b97be6667a7b74cb5e"
   dependencies:
     "@hyperswarm/dht" "^6.0.1"
     libskynet "^0.0.61"
     msgpackr "^1.6.1"
 
-"@msgpackr-extract/msgpackr-extract-darwin-arm64@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-2.0.2.tgz#01e3669b8b2dc01f6353f2c87e1ec94faf52c587"
-  integrity sha512-FMX5i7a+ojIguHpWbzh5MCsCouJkwf4z4ejdUY/fsgB9Vkdak4ZnoIEskOyOUMMB4lctiZFGszFQJXUeFL8tRg==
+"@msgpackr-extract/msgpackr-extract-darwin-arm64@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-2.1.2.tgz#9571b87be3a3f2c46de05585470bc4f3af2f6f00"
+  integrity sha512-TyVLn3S/+ikMDsh0gbKv2YydKClN8HaJDDpONlaZR+LVJmsxLFUgA+O7zu59h9+f9gX1aj/ahw9wqa6rosmrYQ==
 
-"@msgpackr-extract/msgpackr-extract-darwin-x64@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-x64/-/msgpackr-extract-darwin-x64-2.0.2.tgz#5ca32f16e6f1b7854001a1a2345b61d4e26a0931"
-  integrity sha512-DznYtF3lHuZDSRaIOYeif4JgO0NtO2Xf8DsngAugMx/bUdTFbg86jDTmkVJBNmV+cxszz6OjGvinnS8AbJ342g==
+"@msgpackr-extract/msgpackr-extract-darwin-x64@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-x64/-/msgpackr-extract-darwin-x64-2.1.2.tgz#bfbc6936ede2955218f5621a675679a5fe8e6f4c"
+  integrity sha512-YPXtcVkhmVNoMGlqp81ZHW4dMxK09msWgnxtsDpSiZwTzUBG2N+No2bsr7WMtBKCVJMSD6mbAl7YhKUqkp/Few==
 
-"@msgpackr-extract/msgpackr-extract-linux-arm64@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm64/-/msgpackr-extract-linux-arm64-2.0.2.tgz#ff629f94379981bf476dffb1439a7c1d3dba2d72"
-  integrity sha512-b0jMEo566YdM2K+BurSed7bswjo3a6bcdw5ETqoIfSuxKuRLPfAiOjVbZyZBgx3J/TAM/QrvEQ/VN89A0ZAxSg==
+"@msgpackr-extract/msgpackr-extract-linux-arm64@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm64/-/msgpackr-extract-linux-arm64-2.1.2.tgz#22555e28382af2922e7450634c8a2f240bb9eb82"
+  integrity sha512-vHZ2JiOWF2+DN9lzltGbhtQNzDo8fKFGrf37UJrgqxU0yvtERrzUugnfnX1wmVfFhSsF8OxrfqiNOUc5hko1Zg==
 
-"@msgpackr-extract/msgpackr-extract-linux-arm@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm/-/msgpackr-extract-linux-arm-2.0.2.tgz#5f6fd30d266c4a90cf989049c7f2e50e5d4fcd4c"
-  integrity sha512-Gy9+c3Wj+rUlD3YvCZTi92gs+cRX7ZQogtwq0IhRenloTTlsbpezNgk6OCkt59V4ATEWSic9rbU92H/l7XsRvA==
+"@msgpackr-extract/msgpackr-extract-linux-arm@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-arm/-/msgpackr-extract-linux-arm-2.1.2.tgz#ffb6ae1beea7ac572b6be6bf2a8e8162ebdd8be7"
+  integrity sha512-42R4MAFeIeNn+L98qwxAt360bwzX2Kf0ZQkBBucJ2Ircza3asoY4CDbgiu9VWklq8gWJVSJSJBwDI+c/THiWkA==
 
-"@msgpackr-extract/msgpackr-extract-linux-x64@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-2.0.2.tgz#167faa553b9dbffac8b03bf27de9b6f846f0e1bc"
-  integrity sha512-zrBHaePwcv4cQXxzYgNj0+A8I1uVN97E7/3LmkRocYZ+rMwUsnPpp4RuTAHSRoKlTQV3nSdCQW4Qdt4MXw/iHw==
+"@msgpackr-extract/msgpackr-extract-linux-x64@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-linux-x64/-/msgpackr-extract-linux-x64-2.1.2.tgz#7caf62eebbfb1345de40f75e89666b3d4194755f"
+  integrity sha512-RjRoRxg7Q3kPAdUSC5EUUPlwfMkIVhmaRTIe+cqHbKrGZ4M6TyCA/b5qMaukQ/1CHWrqYY2FbKOAU8Hg0pQFzg==
 
-"@msgpackr-extract/msgpackr-extract-win32-x64@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-2.0.2.tgz#baea7764b1adf201ce4a792fe971fd7211dad2e4"
-  integrity sha512-fpnI00dt+yO1cKx9qBXelKhPBdEgvc8ZPav1+0r09j0woYQU2N79w/jcGawSY5UGlgQ3vjaJsFHnGbGvvqdLzg==
+"@msgpackr-extract/msgpackr-extract-win32-x64@2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-2.1.2.tgz#f2d8b9ddd8d191205ed26ce54aba3dfc5ae3e7c9"
+  integrity sha512-rIZVR48zA8hGkHIK7ED6+ZiXsjRCcAVBJbm8o89OKAMTmEAQ2QvoOxoiu3w2isAaWwzgtQIOFIqHwvZDyLKCvw==
 
 "@skynetlabs/libskynet@^0.0.48":
   version "0.0.48"
@@ -82,14 +82,14 @@
   integrity sha512-wFqPLVuGyfuEU1PsE7AMC+ANcoJiz7iruJPUrNZC0riDv1qMrZw+tx44HlBXLJ1H50JZiGtRPr9zLgkPFhf9OA==
 
 "@types/node@^18.0.6":
-  version "18.0.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.6.tgz#0ba49ac517ad69abe7a1508bc9b3a5483df9d5d7"
-  integrity sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw==
+  version "18.7.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.14.tgz#0fe081752a3333392d00586d815485a17c2cf3c9"
+  integrity sha512-6bbDaETVi8oyIARulOE9qF1/Qdi/23z6emrUh0fNJRUmjznqrixD4MpGDdgOFk5Xb0m2H6Xu42JGdvAxaJR/wA==
 
 b4a@^1.0.1, b4a@^1.1.0, b4a@^1.1.1, b4a@^1.3.0, b4a@^1.3.1, b4a@^1.5.0:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/b4a/-/b4a-1.5.3.tgz#56293b5607aeda3fd81c481e516e9f103fc88341"
-  integrity sha512-1aCQIzQJK7G0z1Una75tWMlwVAR8o+QHoAlnWc5XAxRVBESY9WsitfBgM5nPyDBP5HrhPU1Np4Pq2Y7CJQ+tVw==
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/b4a/-/b4a-1.6.0.tgz#5430a9cac1af388910dd1a1c1aa9d3a0a796ed68"
+  integrity sha512-fsTxXxj1081Yq5MOQ06gZ5+e2QcSyP2U6NofdOWyq+lrNI4IjkZ+fLVmoQ6uUCiNg1NWePMMVq93vOTdbJmErw==
 
 base64-js@^1.3.1:
   version "1.5.1"
@@ -113,9 +113,12 @@ blake2b@^2.1.1:
     nanoassert "^2.0.0"
 
 bogon@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/bogon/-/bogon-1.0.0.tgz#66b8cdd269f790e3aa988e157bb34d4ba75ee586"
-  integrity sha512-mXxtlBtnW8koqFWPUBtKJm97vBSKZRpOvxvMRVun33qQXwMNfQzq9eTcQzKzqEoNUhNqF9t8rDc/wakKCcHMTg==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/bogon/-/bogon-1.1.0.tgz#14234260353d8f806c3a307202f66698f635d18b"
+  integrity sha512-a6SnToksXHuUlgeMvI/txWmTcKz7c7iBa8f0HbXL4toN1Uza/CTQ4F7n9jSDX49TCpxv3KUP100q4sZfwLyLiw==
+  dependencies:
+    compact-encoding "^2.11.0"
+    compact-encoding-net "^1.2.0"
 
 buffer@^6.0.3:
   version "6.0.3"
@@ -132,17 +135,17 @@ chacha20-universal@^1.0.4:
   dependencies:
     nanoassert "^2.0.0"
 
-compact-encoding-net@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/compact-encoding-net/-/compact-encoding-net-1.0.1.tgz#4da743d52721f5d0cc73a6d00556a96bc9b9fa1b"
-  integrity sha512-N9k1Qwg9b1ENk+TZsZhthzkuMtn3rn4ZinN75gf3/LplE+uaTCKjyaau5sK0m2NEUa/MmR77VxiGfD/Qz1ar0g==
+compact-encoding-net@^1.0.1, compact-encoding-net@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/compact-encoding-net/-/compact-encoding-net-1.2.0.tgz#19d2efd55df10f2ee793576fc4483bf6d2218743"
+  integrity sha512-LVXpNpF7PGQeHRVVLGgYWzuVoYAaDZvKUsUxRioGfkotzvOh4AzoQF1HBH3zMNaSnx7gJXuUr3hkjnijaH/Eng==
   dependencies:
     compact-encoding "^2.4.1"
 
-compact-encoding@^2.1.0, compact-encoding@^2.4.1, compact-encoding@^2.5.1:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/compact-encoding/-/compact-encoding-2.7.0.tgz#e6a0df408c25cbcdf7d619c97527074478cafd06"
-  integrity sha512-2I0A+pYKXYwxewbLxj26tU4pJyKlFNjadzjZ+36xJ5HwTrnhD9KcMQk3McEQRl1at6jrwA8E7UjmBdsGhEAPMw==
+compact-encoding@^2.1.0, compact-encoding@^2.11.0, compact-encoding@^2.4.1, compact-encoding@^2.5.1:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/compact-encoding/-/compact-encoding-2.11.0.tgz#eff11cb0c328b3f82556cb391ed54519155fbdf8"
+  integrity sha512-CRfTuyy9Tg7EwxNKvIq3yFIr2JnJLyVr9Yj234VsDCL59hdXcZH3TdzY/2kwbAqVogIoRBJjnNKCEnXbxTIEeg==
   dependencies:
     b4a "^1.3.0"
 
@@ -154,9 +157,9 @@ debugging-stream@^2.0.0:
     streamx "^2.12.4"
 
 dht-rpc@^6.0.0:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/dht-rpc/-/dht-rpc-6.1.1.tgz#a292a22aa19b05136978d33528cb571d6e32502f"
-  integrity sha512-wo0nMXwn/rhxVz62V0d+l/0HuikxLQh6lkwlUIdoaUzGl9DobFj4epSScD3/lTMwKts+Ih0DFNqP+j0tYwdajQ==
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/dht-rpc/-/dht-rpc-6.3.0.tgz#bd9fbdc0a558182af35eb9c4e92aad38e6a6e68a"
+  integrity sha512-mJBX6DPEp5wwg42yzeoLkwM4PSewwZ+50VfchT3Bc26qY45ESQZ7J9cIuatRNkPt8MXdxQw0AaOoIw0NwmC8KA==
   dependencies:
     b4a "^1.3.1"
     compact-encoding "^2.1.0"
@@ -168,7 +171,7 @@ dht-rpc@^6.0.0:
     sodium-universal "^3.0.4"
     streamx "^2.10.3"
     time-ordered-set "^1.0.2"
-    udx-native "^1.1.0"
+    udx-native "^1.2.0"
 
 events@^3.3.0:
   version "3.3.0"
@@ -216,9 +219,9 @@ ieee754@^1.2.1:
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
 is-core-module@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.9.0.tgz#e1c34429cd51c6dd9e09e0799e396e27b19a9c69"
-  integrity sha512-+5FPy5PnwmO3lvfMb0AsoPaBG+5KHUI0wYFXOtYPnVVVspTFUuMZNfNaNVRt3FZadstu2c8x23vykRW/NBoU6A==
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.10.0.tgz#9012ede0a91c69587e647514e1d5277019e728ed"
+  integrity sha512-Erxj2n/LDAZ7H8WNJXd9tw38GYM3dv8rk8Zcs+jJuxYTW7sozH+SS8NtrSjVL1/vpLvWi1hxy96IzjJ3EHTJJg==
   dependencies:
     has "^1.0.3"
 
@@ -228,19 +231,19 @@ kademlia-routing-table@^1.0.0:
   integrity sha512-dKk19sC3/+kWhBIvOKCthxVV+JH0NrswSBq4sA4eOkkPMqQM1rRuOWte1WSKXeP8r9Nx4NuiH2gny3lMddJTpw==
 
 libkernel@^0.1.43:
-  version "0.1.43"
-  resolved "https://registry.yarnpkg.com/libkernel/-/libkernel-0.1.43.tgz#774368f98de6139245cc5719403cbda0fd5cc4c8"
-  integrity sha512-A3Qs790SVutYBqQojDyfavh/cQUWYUEPRkoc4UPT9uKbaoqd4Tj8WFXbFBA3fhr5hcj9SuHJsK5C9OjXGAZZog==
+  version "0.1.48"
+  resolved "https://registry.yarnpkg.com/libkernel/-/libkernel-0.1.48.tgz#b5d44bc786403b3bfead39e14ca4db5c54c8792e"
+  integrity sha512-h86j/D+5gnpw/h8DTQE1C9hWFRmQnw5ZU9L3fYTZIPqPEIIU40z+tnDp66Zbb6mcfYCr8+SGkhcCy3XsyHOvyQ==
   dependencies:
     "@skynetlabs/libskynet" "^0.0.48"
-    libskynet "^0.0.62"
+    libskynet "^0.0.64"
 
 libkmodule@^0.2.44:
-  version "0.2.44"
-  resolved "https://registry.yarnpkg.com/libkmodule/-/libkmodule-0.2.44.tgz#6ae01505ab9333261931589bc4ba8e32e4b68630"
-  integrity sha512-sOgZCAdfw6A2McY3YzhTFCb+rl8zErDlhvymZsLDIVyz4CzsM4Xdd7a0h8AR37K/BMMOdI5kC7A9ilJCPdfPjA==
+  version "0.2.51"
+  resolved "https://registry.yarnpkg.com/libkmodule/-/libkmodule-0.2.51.tgz#d454e6a889c74bf5a8fe5bf6db5c3dcfe9f527c1"
+  integrity sha512-zDJiIZNkuN2Ats6yPWTklwphHgpOYTt2gCy70XFNav3ReZ+tjE5UcGCeMdZTPlvXVbc9k/CaCxSqJ866SzuWTA==
   dependencies:
-    libskynet "^0.0.62"
+    libskynet "^0.0.65"
 
 libskynet@^0.0.61:
   version "0.0.61"
@@ -252,24 +255,34 @@ libskynet@^0.0.62:
   resolved "https://registry.yarnpkg.com/libskynet/-/libskynet-0.0.62.tgz#6939de26a48beca4efb29eeed68c32538e61ca04"
   integrity sha512-rKB09+EH3XJGPmJ7/ycND1jIUCMGQXlu9X9vpuiWp+/mqYh07jzKCNlGzInjw/nqluVAZORR6y1y9ULr5u/H+A==
 
+libskynet@^0.0.64:
+  version "0.0.64"
+  resolved "https://registry.yarnpkg.com/libskynet/-/libskynet-0.0.64.tgz#ff933a770a76bd6faa06da52279f0638ff8db3d8"
+  integrity sha512-OPIxvxNTbo7H6KWU1YgQkfksNGTSQYVDsmGTji05/Gv2ZpwTOVJF4AMvggCHyLije8fNe4ZXRrBEtLQI3kpAaQ==
+
+libskynet@^0.0.65:
+  version "0.0.65"
+  resolved "https://registry.yarnpkg.com/libskynet/-/libskynet-0.0.65.tgz#9c58c596f12026ff653925b15edb85bd980e2ce0"
+  integrity sha512-UcvzEotQa2JMBeWeUMKYLrHxRjuAtvU68PKfGt1rmcBtcup2d1pQewKxGNP4U3DIO062nvdcpU8ARvXu1pFgxQ==
+
 msgpackr-extract@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/msgpackr-extract/-/msgpackr-extract-2.0.2.tgz#201a8d7ade47e99b3ba277c45736b00e195d4670"
-  integrity sha512-coskCeJG2KDny23zWeu+6tNy7BLnAiOGgiwzlgdm4oeSsTpqEJJPguHIuKZcCdB7tzhZbXNYSg6jZAXkZErkJA==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/msgpackr-extract/-/msgpackr-extract-2.1.2.tgz#56272030f3e163e1b51964ef8b1cd5e7240c03ed"
+  integrity sha512-cmrmERQFb19NX2JABOGtrKdHMyI6RUyceaPBQ2iRz9GnDkjBWFjNJC0jyyoOfZl2U/LZE3tQCCQc4dlRyA8mcA==
   dependencies:
-    node-gyp-build-optional-packages "5.0.2"
+    node-gyp-build-optional-packages "5.0.3"
   optionalDependencies:
-    "@msgpackr-extract/msgpackr-extract-darwin-arm64" "2.0.2"
-    "@msgpackr-extract/msgpackr-extract-darwin-x64" "2.0.2"
-    "@msgpackr-extract/msgpackr-extract-linux-arm" "2.0.2"
-    "@msgpackr-extract/msgpackr-extract-linux-arm64" "2.0.2"
-    "@msgpackr-extract/msgpackr-extract-linux-x64" "2.0.2"
-    "@msgpackr-extract/msgpackr-extract-win32-x64" "2.0.2"
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64" "2.1.2"
+    "@msgpackr-extract/msgpackr-extract-darwin-x64" "2.1.2"
+    "@msgpackr-extract/msgpackr-extract-linux-arm" "2.1.2"
+    "@msgpackr-extract/msgpackr-extract-linux-arm64" "2.1.2"
+    "@msgpackr-extract/msgpackr-extract-linux-x64" "2.1.2"
+    "@msgpackr-extract/msgpackr-extract-win32-x64" "2.1.2"
 
 msgpackr@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.6.1.tgz#4f3c94d6a5b819b838ffc736eddaf60eba436d20"
-  integrity sha512-Je+xBEfdjtvA4bKaOv8iRhjC8qX2oJwpYH4f7JrG4uMVJVmnmkAT4pjKdbztKprGj3iwjcxPzb5umVZ02Qq3tA==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.6.2.tgz#176cd9f6b4437dad87a839b37f23c2dfee408d9a"
+  integrity sha512-bqSQ0DYJbXbrJcrZFmMygUZmqQiDfI2ewFVWcrZY12w5XHWtPuW4WppDT/e63Uu311ajwkRRXSoF0uILroBeTA==
   optionalDependencies:
     msgpackr-extract "^2.0.2"
 
@@ -293,10 +306,10 @@ nat-sampler@^1.0.1:
   resolved "https://registry.yarnpkg.com/nat-sampler/-/nat-sampler-1.0.1.tgz#2b68338ea6d4c139450cd971fd00a4ac1b33d923"
   integrity sha512-yQvyNN7xbqR8crTKk3U8gRgpcV1Az+vfCEijiHu9oHHsnIl8n3x+yXNHl42M6L3czGynAVoOT9TqBfS87gDdcw==
 
-node-gyp-build-optional-packages@5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/node-gyp-build-optional-packages/-/node-gyp-build-optional-packages-5.0.2.tgz#3de7d30bd1f9057b5dfbaeab4a4442b7fe9c5901"
-  integrity sha512-PiN4NWmlQPqvbEFcH/omQsswWQbe5Z9YK/zdB23irp5j2XibaA2IrGvpSWmVVG4qMZdmPdwPctSy4a86rOMn6g==
+node-gyp-build-optional-packages@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/node-gyp-build-optional-packages/-/node-gyp-build-optional-packages-5.0.3.tgz#92a89d400352c44ad3975010368072b41ad66c17"
+  integrity sha512-k75jcVzk5wnnc/FMxsf4udAoTEUv2jY3ycfdSd3yWu6Cnd1oee6/CfZJApyscA4FJOmdoixWwiwOyf16RzD5JA==
 
 node-gyp-build@^4.3.0, node-gyp-build@^4.4.0:
   version "4.5.0"
@@ -411,9 +424,9 @@ sodium-javascript@~0.8.0:
     xsalsa20 "^1.0.0"
 
 sodium-native@^3.1.1, sodium-native@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/sodium-native/-/sodium-native-3.3.0.tgz#50ee52ac843315866cce3d0c08ab03eb78f22361"
-  integrity sha512-rg6lCDM/qa3p07YGqaVD+ciAbUqm6SoO4xmlcfkbU5r1zIGrguXztLiEtaLYTV5U6k8KSIUFmnU3yQUSKmf6DA==
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/sodium-native/-/sodium-native-3.4.1.tgz#44616c07ccecea15195f553af88b3e574b659741"
+  integrity sha512-PaNN/roiFWzVVTL6OqjzYct38NSXewdl2wz8SRB51Br/MLIJPrbM3XexhVWkq7D3UWMysfrhKVf1v1phZq6MeQ==
   dependencies:
     node-gyp-build "^4.3.0"
 
@@ -442,9 +455,9 @@ sodium-universal@^3.0.0, sodium-universal@^3.0.4:
     xsalsa20 "^1.0.0"
 
 streamx@^2.10.2, streamx@^2.10.3, streamx@^2.12.0, streamx@^2.12.4:
-  version "2.12.4"
-  resolved "https://registry.yarnpkg.com/streamx/-/streamx-2.12.4.tgz#0369848b20b8f79c65320735372df17cafcd9aff"
-  integrity sha512-K3xdIp8YSkvbdI0PrCcP0JkniN8cPCyeKlcZgRFSl1o1xKINCYM93FryvTSOY57x73pz5/AjO5B8b9BYf21wWw==
+  version "2.12.5"
+  resolved "https://registry.yarnpkg.com/streamx/-/streamx-2.12.5.tgz#485d6b6bf74df6f94bc1cc262e67392ed6862dc0"
+  integrity sha512-Y+nkFw57Z5JHT3zLlqFm3GccOy2FeYdUrrqita6Dd8kr/8enPn9GKa8IYf3/DmEKfZl/E2sWoSKUnd4qhonrgg==
   dependencies:
     fast-fifo "^1.0.0"
     queue-tick "^1.0.0"
@@ -464,12 +477,13 @@ timeout-refresh@^2.0.0:
   resolved "https://registry.yarnpkg.com/timeout-refresh/-/timeout-refresh-2.0.1.tgz#f8ec7cf1f9d93b2635b7d4388cb820c5f6c16f98"
   integrity sha512-SVqEcMZBsZF9mA78rjzCrYrUs37LMJk3ShZ851ygZYW1cMeIjs9mL57KO6Iv5mmjSQnOe/29/VAfGXo+oRCiVw==
 
-udx-native@^1.1.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/udx-native/-/udx-native-1.2.1.tgz#a229b8bfab8c9c9eea05c7e0d68e671ab70d562d"
-  integrity sha512-hLoJ3rE1PuqO/A1YENG8oYNuAGltdwXofzavYwXbg2yk/qQgGBDpUQd/qtdENxkawad5cEEdJEdwvchslDl7OA==
+udx-native@^1.1.0, udx-native@^1.2.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/udx-native/-/udx-native-1.4.0.tgz#5216a9717e0170c85901594dc4083eb4572da940"
+  integrity sha512-AE6s55T6W85NxoyHj6N2vxVRh/0aHDhzCBNTN7RHDXF2Vm3kKIyaor6LtyIRGuO8gMUZYay96HUP50MBWkcUhw==
   dependencies:
     b4a "^1.5.0"
+    events "^3.3.0"
     napi-macros "^2.0.0"
     node-gyp-build "^4.4.0"
     streamx "^2.12.0"
