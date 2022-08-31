@@ -156,7 +156,7 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
     run() {
         this._promise = this._network.processQueue().then(() => connectModule(RPC_MODULE, this._queryType, {
             query: this._query,
-            options: this._options,
+            options: { ...this._options, streamHandler: true },
             network: this._network.networkId,
         }, this._options.streamHandler));
         return this;
