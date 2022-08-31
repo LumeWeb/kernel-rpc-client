@@ -88,9 +88,10 @@ export class RpcQueryBase {
         this._queryType = queryType;
     }
     run() {
-        this._promise = this._network
-            .processQueue()
-            .then(() => callModule(RPC_MODULE, this._queryType, this._query));
+        this._promise = this._network.processQueue().then(() => callModule(RPC_MODULE, this._queryType, {
+            query: this._query,
+            options: this._options,
+        }));
         return this;
     }
     get result() {
@@ -114,9 +115,10 @@ export class StreamingRpcQuery extends RpcQueryBase {
         this._options = options;
     }
     run() {
-        this._promise = this._network
-            .processQueue()
-            .then(() => connectModule(RPC_MODULE, this._queryType, this._query, this._options.streamHandler));
+        this._promise = this._network.processQueue().then(() => connectModule(RPC_MODULE, this._queryType, {
+            query: this._query,
+            options: this._options,
+        }, this._options.streamHandler));
         return this;
     }
 }
