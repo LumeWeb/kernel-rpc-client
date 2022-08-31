@@ -19,8 +19,32 @@ export class RpcNetwork {
     _actionQueue = [];
     _addQueue = [];
     _removeQueue = [];
+    _def;
+    constructor(def = true) {
+        this._def = def;
+    }
+    _networkId = 0;
+    get networkId() {
+        return this._networkId;
+    }
     get ready() {
-        return loadLibs().then(() => callModule(RPC_MODULE, "ready"));
+        let promise = loadLibs();
+        if (this._def) {
+            this._networkId = 0;
+        }
+        else {
+            promise = promise
+                .then(() => callModule(RPC_MODULE, "createNetwork"))
+                .then((ret) => (this._networkId = ret[0]));
+        }
+        return promise.then(() => callModule(RPC_MODULE, "ready", { network: this._networkId }));
+    }
+    static deleteItem(array, item) {
+        if (array.includes(item)) {
+            let queue = new Set(array);
+            queue.delete(item);
+            [].splice.apply(array, [0, array.length].concat([...queue]));
+        }
     }
     addRelay(pubkey) {
         this._addQueue.push(pubkey);
@@ -34,13 +58,6 @@ export class RpcNetwork {
     }
     clearRelays() {
         this._actionQueue.push(["clearRelays", {}]);
-    }
-    static deleteItem(array, item) {
-        if (array.includes(item)) {
-            let queue = new Set(array);
-            queue.delete(item);
-            [].splice.apply(array, [0, array.length].concat([...queue]));
-        }
     }
     wisdomQuery(method, module, data = {}, bypassCache = false, options = {}) {
         return new WisdomRpcQuery(this, {
@@ -64,12 +81,21 @@ export class RpcNetwork {
         await loadLibs();
         for (const action of this._actionQueue) {
             try {
-                await callModule(RPC_MODULE, action[0], action[1]);
+                await callModule(RPC_MODULE, action[0], {
+                    ...action[1],
+                    network: this._networkId,
+                });
             }
             catch (e) { }
         }
-        await Promise.allSettled(this._removeQueue.map((item) => callModule(RPC_MODULE, "removeRelay", { pubkey: item })));
-        await Promise.allSettled(this._addQueue.map((item) => callModule(RPC_MODULE, "addRelay", { pubkey: item })));
+        await Promise.allSettled(this._removeQueue.map((item) => callModule(RPC_MODULE, "removeRelay", {
+            pubkey: item,
+            network: this._networkId,
+        })));
+        await Promise.allSettled(this._addQueue.map((item) => callModule(RPC_MODULE, "addRelay", {
+            pubkey: item,
+            network: this._networkId,
+        })));
         this._actionQueue = [];
         this._removeQueue = [];
         this._addQueue = [];
@@ -87,13 +113,6 @@ export class RpcQueryBase {
         this._options = options;
         this._queryType = queryType;
     }
-    run() {
-        this._promise = this._network.processQueue().then(() => callModule(RPC_MODULE, this._queryType, {
-            query: this._query,
-            options: this._options,
-        }));
-        return this;
-    }
     get result() {
         return this._promise.then((result) => {
             if (result[1]) {
@@ -101,6 +120,14 @@ export class RpcQueryBase {
             }
             return result[0];
         });
+    }
+    run() {
+        this._promise = this._network.processQueue().then(() => callModule(RPC_MODULE, this._queryType, {
+            query: this._query,
+            options: this._options,
+            network: this._network.networkId,
+        }));
+        return this;
     }
 }
 export class SimpleRpcQuery extends RpcQueryBase {
@@ -118,6 +145,7 @@ export class StreamingRpcQuery extends RpcQueryBase {
         this._promise = this._network.processQueue().then(() => connectModule(RPC_MODULE, this._queryType, {
             query: this._query,
             options: this._options,
+            network: this._network.networkId,
         }, this._options.streamHandler));
         return this;
     }

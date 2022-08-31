@@ -11,11 +11,15 @@ export declare class RpcNetwork {
   private _actionQueue;
   private _addQueue;
   private _removeQueue;
+  private _def;
+  constructor(def?: boolean);
+  private _networkId;
+  get networkId(): number;
   get ready(): Promise<ErrTuple>;
+  private static deleteItem;
   addRelay(pubkey: string): void;
   removeRelay(pubkey: string): void;
   clearRelays(): void;
-  private static deleteItem;
   wisdomQuery(
     method: string,
     module: string,
@@ -52,8 +56,8 @@ export declare abstract class RpcQueryBase {
     options: RpcQueryOptions | undefined,
     queryType: string
   );
-  run(): this;
   get result(): Promise<RPCResponse>;
+  run(): this;
 }
 export declare class SimpleRpcQuery extends RpcQueryBase {
   constructor(
