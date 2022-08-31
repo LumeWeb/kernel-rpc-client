@@ -6,6 +6,7 @@ import {
   StreamingRpcQueryOptions,
 } from "@lumeweb/dht-rpc-client";
 import { Buffer } from "buffer";
+import { DataFn } from "libskynet/dist";
 
 const RPC_MODULE = "AQDaEPIo_lpdvz7AKbeafERBHR331RiyvweJ6OrFTplzyg";
 
@@ -266,6 +267,19 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
     );
 
     return this;
+  }
+
+  get result(): Promise<RPCResponse> {
+    return (this._promise as Promise<any>)
+      .then(
+        (result): [sendUpdate: DataFn, response: Promise<ErrTuple>] => result[1]
+      )
+      .then((response: any) => {
+        if (response[1]) {
+          return { error: response[1] };
+        }
+        return response[0];
+      });
   }
 }
 
