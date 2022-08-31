@@ -97,7 +97,7 @@ export class RpcQueryBase {
     get result() {
         return this._promise.then((result) => {
             if (result[1]) {
-                throw new Error(result[1]);
+                return { error: result[1] };
             }
             return result[0];
         });

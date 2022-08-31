@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { ErrTuple } from "libskynet";
-import type { RPCRequest } from "@lumeweb/relay-types";
+import type { RPCRequest, RPCResponse } from "@lumeweb/relay-types";
 import {
   RpcQueryOptions,
   StreamHandlerFunction,
@@ -53,7 +53,7 @@ export declare abstract class RpcQueryBase {
     queryType: string
   );
   run(): this;
-  get result(): Promise<any>;
+  get result(): Promise<RPCResponse>;
 }
 export declare class SimpleRpcQuery extends RpcQueryBase {
   constructor(
