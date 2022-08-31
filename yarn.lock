@@ -46,6 +46,10 @@
     libskynet "^0.0.61"
     msgpackr "^1.6.1"
 
+"@lumeweb/relay-types@https://github.com/LumeWeb/relay-types.git":
+  version "0.1.0"
+  resolved "https://github.com/LumeWeb/relay-types.git#9768e2dc9dd8ccc2ee8569424bb9d7a2d8cde13e"
+
 "@msgpackr-extract/msgpackr-extract-darwin-arm64@2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-2.1.2.tgz#9571b87be3a3f2c46de05585470bc4f3af2f6f00"
