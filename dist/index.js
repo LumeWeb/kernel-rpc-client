@@ -30,7 +30,7 @@ export class RpcNetwork {
     get ready() {
         let promise = loadLibs();
         if (this._def) {
-            this._networkId = 0;
+            this._networkId = 1;
         }
         else {
             promise = promise
