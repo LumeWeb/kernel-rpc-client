@@ -47,7 +47,7 @@ export class RpcNetwork {
     let promise = loadLibs();
 
     if (this._def) {
-      this._networkId = 0;
+      this._networkId = 1;
     } else {
       promise = promise
         .then(() => callModule(RPC_MODULE, "createNetwork"))
