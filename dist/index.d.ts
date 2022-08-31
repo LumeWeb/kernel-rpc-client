@@ -78,6 +78,7 @@ export declare class StreamingRpcQuery extends SimpleRpcQuery {
     options: StreamingRpcQueryOptions
   );
   run(): this;
+  get result(): Promise<RPCResponse>;
 }
 export declare class WisdomRpcQuery extends RpcQueryBase {
   constructor(

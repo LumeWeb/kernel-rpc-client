@@ -161,6 +161,16 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
         }, this._options.streamHandler));
         return this;
     }
+    get result() {
+        return this._promise
+            .then((result) => result[1])
+            .then((response) => {
+            if (response[1]) {
+                return { error: response[1] };
+            }
+            return response[0];
+        });
+    }
 }
 export class WisdomRpcQuery extends RpcQueryBase {
     constructor(network, query, options = {}) {
