@@ -1,5 +1,5 @@
 import { ErrTuple } from "libskynet";
-import type { RPCRequest } from "@lumeweb/relay-types";
+import type { RPCRequest, RPCResponse } from "@lumeweb/relay-types";
 import {
   RpcQueryOptions,
   StreamHandlerFunction,
@@ -169,10 +169,10 @@ export abstract class RpcQueryBase {
     return this;
   }
 
-  get result(): Promise<any> {
-    return (this._promise as Promise<any>).then((result) => {
+  get result(): Promise<RPCResponse> {
+    return (this._promise as Promise<any>).then((result): RPCResponse => {
       if (result[1]) {
-        throw new Error(result[1]);
+        return { error: result[1] };
       }
       return result[0];
     });
