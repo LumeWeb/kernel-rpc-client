@@ -214,7 +214,7 @@ export abstract class RpcQueryBase {
 }
 
 export class SimpleRpcQuery extends RpcQueryBase {
-  private _relay: string | Buffer;
+  protected _relay: string | Buffer;
   constructor(
     network: RpcNetwork,
     relay: string | Buffer,
@@ -258,6 +258,7 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
         RPC_MODULE,
         this._queryType,
         {
+          relay: this._relay,
           query: this._query,
           options: { ...this._options, streamHandler: true },
           network: this._network.networkId,
