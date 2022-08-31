@@ -39,16 +39,26 @@ export class RpcNetwork {
         if (array.includes(item)) {
             let queue = new Set(array);
             queue.delete(item);
-            array = [...queue];
+            [].splice.apply(array, [0, array.length].concat([...queue]));
         }
     }
-    query(query, chain, data = {}, force = false) {
-        return new RpcQuery(this, {
-            query,
-            chain,
+    wisdomQuery(method, module, data = {}, bypassCache = false, options = {}) {
+        return new WisdomRpcQuery(this, {
+            method,
+            module,
             data,
-            force: force,
-        });
+            bypassCache,
+        }, options).run();
+    }
+    streamingQuery(relay, method, module, streamHandler, data = {}, options = {}) {
+        return new StreamingRpcQuery(this, relay, { method, module, data }, { streamHandler, ...options }).run();
+    }
+    simpleQuery(relay, method, module, data = {}, options = {}) {
+        return new SimpleRpcQuery(this, relay, {
+            method,
+            module,
+            data,
+        }, options).run();
     }
     async processQueue() {
         await loadLibs();
@@ -65,12 +75,23 @@ export class RpcNetwork {
         this._addQueue = [];
     }
 }
-export class RpcQuery {
+export class RpcQueryBase {
     _promise;
-    constructor(network, query) {
-        this._promise = network
+    _network;
+    _query;
+    _options;
+    _queryType;
+    constructor(network, query, options = {}, queryType) {
+        this._network = network;
+        this._query = query;
+        this._options = options;
+        this._queryType = queryType;
+    }
+    run() {
+        this._promise = this._network
             .processQueue()
-            .then(() => callModule(RPC_MODULE, "query", query));
+            .then(() => callModule(RPC_MODULE, this._queryType, this._query));
+        return this;
     }
     get result() {
         return this._promise.then((result) => {
@@ -79,5 +100,28 @@ export class RpcQuery {
             }
             return result[0];
         });
+    }
+}
+export class SimpleRpcQuery extends RpcQueryBase {
+    constructor(network, relay, query, options) {
+        super(network, query, options, "simpleQuery");
+    }
+}
+export class StreamingRpcQuery extends RpcQueryBase {
+    _options;
+    constructor(network, relay, query, options) {
+        super(network, query, options, "streamingQuery");
+        this._options = options;
+    }
+    run() {
+        this._promise = this._network
+            .processQueue()
+            .then(() => connectModule(RPC_MODULE, this._queryType, this._query, this._options.streamHandler));
+        return this;
+    }
+}
+export class WisdomRpcQuery extends RpcQueryBase {
+    constructor(network, query, options = {}) {
+        super(network, query, options, "wisdomQuery");
     }
 }
