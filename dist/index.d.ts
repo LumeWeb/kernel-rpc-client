@@ -60,7 +60,7 @@ export declare abstract class RpcQueryBase {
   run(): this;
 }
 export declare class SimpleRpcQuery extends RpcQueryBase {
-  private _relay;
+  protected _relay: string | Buffer;
   constructor(
     network: RpcNetwork,
     relay: string | Buffer,
