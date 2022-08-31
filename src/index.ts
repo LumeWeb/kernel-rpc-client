@@ -258,7 +258,7 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
         this._queryType,
         {
           query: this._query,
-          options: this._options,
+          options: { ...this._options, streamHandler: true },
           network: this._network.networkId,
         },
         this._options.streamHandler
