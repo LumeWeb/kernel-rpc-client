@@ -213,6 +213,7 @@ export abstract class RpcQueryBase {
 }
 
 export class SimpleRpcQuery extends RpcQueryBase {
+  private _relay: string | Buffer;
   constructor(
     network: RpcNetwork,
     relay: string | Buffer,
@@ -220,10 +221,23 @@ export class SimpleRpcQuery extends RpcQueryBase {
     options: RpcQueryOptions
   ) {
     super(network, query, options, "simpleQuery");
+    this._relay = relay;
+  }
+  public run(): this {
+    this._promise = this._network.processQueue().then(() =>
+      callModule(RPC_MODULE, this._queryType, {
+        relay: this._relay,
+        query: this._query,
+        options: this._options,
+        network: this._network.networkId,
+      })
+    );
+
+    return this;
   }
 }
 
-export class StreamingRpcQuery extends RpcQueryBase {
+export class StreamingRpcQuery extends SimpleRpcQuery {
   protected _options: StreamingRpcQueryOptions;
 
   constructor(
@@ -232,8 +246,9 @@ export class StreamingRpcQuery extends RpcQueryBase {
     query: RPCRequest,
     options: StreamingRpcQueryOptions
   ) {
-    super(network, query, options, "streamingQuery");
+    super(network, relay, query, options);
     this._options = options;
+    this._queryType = "streamingQuery";
   }
 
   public run(): this {
