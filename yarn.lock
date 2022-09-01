@@ -40,7 +40,7 @@
 
 "@lumeweb/dht-rpc-client@https://github.com/LumeWeb/dht-rpc-client.git":
   version "0.1.0"
-  resolved "https://github.com/LumeWeb/dht-rpc-client.git#c750fce402d98f14cb8885b97be6667a7b74cb5e"
+  resolved "https://github.com/LumeWeb/dht-rpc-client.git#327c429d1e3c13666f34eb2d4b39bfe7db9064da"
   dependencies:
     "@hyperswarm/dht" "^6.0.1"
     libskynet "^0.0.61"
