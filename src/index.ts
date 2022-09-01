@@ -240,6 +240,7 @@ export class SimpleRpcQuery extends RpcQueryBase {
 
 export class StreamingRpcQuery extends SimpleRpcQuery {
   protected _options: StreamingRpcQueryOptions;
+  private _sendUpdate?: DataFn;
 
   constructor(
     network: RpcNetwork,
@@ -252,9 +253,15 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
     this._queryType = "streamingQuery";
   }
 
+  public cancel() {
+    if (this._sendUpdate) {
+      this._sendUpdate({ cancel: true });
+    }
+  }
+
   public run(): this {
-    this._promise = this._network.processQueue().then(() =>
-      connectModule(
+    this._promise = this._network.processQueue().then(() => {
+      const ret = connectModule(
         RPC_MODULE,
         this._queryType,
         {
@@ -264,8 +271,10 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
           network: this._network.networkId,
         },
         this._options.streamHandler
-      )
-    );
+      );
+      this._sendUpdate = ret[0];
+      return ret[1];
+    });
 
     return this;
   }
