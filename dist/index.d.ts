@@ -71,12 +71,14 @@ export declare class SimpleRpcQuery extends RpcQueryBase {
 }
 export declare class StreamingRpcQuery extends SimpleRpcQuery {
   protected _options: StreamingRpcQueryOptions;
+  private _sendUpdate?;
   constructor(
     network: RpcNetwork,
     relay: string | Buffer,
     query: RPCRequest,
     options: StreamingRpcQueryOptions
   );
+  cancel(): void;
   run(): this;
   get result(): Promise<RPCResponse>;
 }

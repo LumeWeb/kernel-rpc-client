@@ -148,18 +148,28 @@ export class SimpleRpcQuery extends RpcQueryBase {
 }
 export class StreamingRpcQuery extends SimpleRpcQuery {
     _options;
+    _sendUpdate;
     constructor(network, relay, query, options) {
         super(network, relay, query, options);
         this._options = options;
         this._queryType = "streamingQuery";
     }
+    cancel() {
+        if (this._sendUpdate) {
+            this._sendUpdate({ cancel: true });
+        }
+    }
     run() {
-        this._promise = this._network.processQueue().then(() => connectModule(RPC_MODULE, this._queryType, {
-            relay: this._relay,
-            query: this._query,
-            options: { ...this._options, streamHandler: true },
-            network: this._network.networkId,
-        }, this._options.streamHandler));
+        this._promise = this._network.processQueue().then(() => {
+            const ret = connectModule(RPC_MODULE, this._queryType, {
+                relay: this._relay,
+                query: this._query,
+                options: { ...this._options, streamHandler: true },
+                network: this._network.networkId,
+            }, this._options.streamHandler);
+            this._sendUpdate = ret[0];
+            return ret[1];
+        });
         return this;
     }
     get result() {
