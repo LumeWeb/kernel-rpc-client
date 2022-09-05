@@ -281,10 +281,8 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
 
   get result(): Promise<RPCResponse> {
     return (this._promise as Promise<any>)
-      .then(
-        (result): [sendUpdate: DataFn, response: Promise<ErrTuple>] => result[1]
-      )
-      .then((response: any) => {
+      .then((result): Promise<ErrTuple> => result)
+      .then((response: ErrTuple) => {
         if (response[1]) {
           return { error: response[1] };
         }
