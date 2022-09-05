@@ -174,7 +174,7 @@ export class StreamingRpcQuery extends SimpleRpcQuery {
     }
     get result() {
         return this._promise
-            .then((result) => result[1])
+            .then((result) => result)
             .then((response) => {
             if (response[1]) {
                 return { error: response[1] };
