@@ -9,9 +9,6 @@ import { RpcQueryOptions } from "@lumeweb/rpc-client";
 import { Buffer } from "buffer";
 import { Client } from "@lumeweb/libkernel-universal";
 export declare class RpcNetwork extends Client {
-  private _actionQueue;
-  private _addQueue;
-  private _removeQueue;
   private _def;
   constructor(def?: boolean);
   private _networkId;
@@ -54,4 +51,5 @@ export declare class SimpleRpcQuery extends RpcQueryBase {
   });
   run(): this;
 }
+export declare const createClient: (...args: any) => RpcNetwork;
 //# sourceMappingURL=index.d.ts.map

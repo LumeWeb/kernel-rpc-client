@@ -1,9 +1,6 @@
-import { Client } from "@lumeweb/libkernel-universal";
+import { Client, factory } from "@lumeweb/libkernel-universal";
 const RPC_MODULE = "fAAgZfXMqN3YOn0-b9DICt8OPsOFeWw3YKY2p84aytzBww";
 export class RpcNetwork extends Client {
-    _actionQueue = [];
-    _addQueue = [];
-    _removeQueue = [];
     _def;
     constructor(def = true) {
         super();
@@ -82,3 +79,4 @@ export class SimpleRpcQuery extends RpcQueryBase {
         return this;
     }
 }
+export const createClient = factory(RpcNetwork, RPC_MODULE);
