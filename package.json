@@ -4,14 +4,15 @@
     "type": "module",
     "main": "dist/index.js",
     "dependencies": {
-        "@lumeweb/dht-rpc-client": "https://github.com/LumeWeb/dht-rpc-client.git",
+        "@lumeweb/libkernel-universal": "git+https://git.lumeweb.com/LumeWeb/libkernel-universal.git",
+        "@lumeweb/rpc-client": "git+https://git.lumeweb.com/LumeWeb/rpc-client.git",
         "buffer": "^6.0.3",
         "libkernel": "^0.1.43",
         "libkmodule": "^0.2.44",
         "libskynet": "^0.0.62"
     },
     "devDependencies": {
-        "@lumeweb/relay-types": "https://github.com/LumeWeb/relay-types.git",
+        "@lumeweb/interface-relay": "git+https://git.lumeweb.com/LumeWeb/interface-relay.git",
         "@types/node": "^18.0.6",
         "prettier": "^2.7.1"
     }
