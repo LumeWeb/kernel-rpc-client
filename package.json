@@ -7,14 +7,17 @@
         "@lumeweb/libkernel-universal": "git+https://git.lumeweb.com/LumeWeb/libkernel-universal.git",
         "@lumeweb/rpc-client": "git+https://git.lumeweb.com/LumeWeb/rpc-client.git",
         "buffer": "^6.0.3",
-        "libkernel": "^0.1.43",
-        "libkmodule": "^0.2.44",
+        "libkernel": "^0.1.48",
+        "libkmodule": "^0.2.53",
         "libskynet": "^0.0.62"
     },
     "devDependencies": {
+        "@lumeweb/cfg": "git+https://git.lumeweb.com/LumeWeb/cfg.git",
         "@lumeweb/interface-relay": "git+https://git.lumeweb.com/LumeWeb/interface-relay.git",
-        "@types/node": "^18.0.6",
-        "prettier": "^2.7.1",
+        "@types/b4a": "^1.6.0",
+        "@types/node": "^18.15.5",
+        "@types/node-cache": "^4.2.5",
+        "prettier": "^2.8.6",
         "typescript": "^5.0.2"
     }
 }
