@@ -11,9 +11,6 @@ import { Client, factory } from "@lumeweb/libkernel-universal";
 const RPC_MODULE = "fAAgZfXMqN3YOn0-b9DICt8OPsOFeWw3YKY2p84aytzBww";
 
 export class RpcNetwork extends Client {
-  private _actionQueue: [string, any][] = [];
-  private _addQueue: string[] = [];
-  private _removeQueue: string[] = [];
   private _def: boolean;
 
   constructor(def: boolean = true) {
