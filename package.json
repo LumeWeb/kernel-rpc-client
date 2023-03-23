@@ -14,6 +14,7 @@
     "devDependencies": {
         "@lumeweb/interface-relay": "git+https://git.lumeweb.com/LumeWeb/interface-relay.git",
         "@types/node": "^18.0.6",
-        "prettier": "^2.7.1"
+        "prettier": "^2.7.1",
+        "typescript": "^5.0.2"
     }
 }
