@@ -6,7 +6,7 @@ import type {
 } from "@lumeweb/interface-relay";
 import { RpcQueryOptions } from "@lumeweb/rpc-client";
 import { Buffer } from "buffer";
-import { Client } from "@lumeweb/libkernel-universal";
+import { Client, factory } from "@lumeweb/libkernel-universal";
 
 const RPC_MODULE = "fAAgZfXMqN3YOn0-b9DICt8OPsOFeWw3YKY2p84aytzBww";
 
@@ -123,3 +123,5 @@ export class SimpleRpcQuery extends RpcQueryBase {
     return this;
   }
 }
+
+export const createClient = factory<RpcNetwork>(RpcNetwork, RPC_MODULE);
