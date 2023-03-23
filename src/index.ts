@@ -8,7 +8,7 @@ import { RpcQueryOptions } from "@lumeweb/rpc-client";
 import { Buffer } from "buffer";
 import { Client } from "@lumeweb/libkernel-universal";
 
-const RPC_MODULE = "PAMz6NHrYRxDqQ-Am5HW_l0tBHouFBCbMXjnnjurJLXpTQ";
+const RPC_MODULE = "fAAgZfXMqN3YOn0-b9DICt8OPsOFeWw3YKY2p84aytzBww";
 
 export class RpcNetwork extends Client {
   private _actionQueue: [string, any][] = [];
