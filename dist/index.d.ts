@@ -23,7 +23,7 @@ export declare class RpcNetwork extends Client {
     relay?: Buffer | string;
     query: ClientRPCRequest;
     data: object | any[];
-    options: RpcQueryOptions;
+    options?: RpcQueryOptions;
   }): SimpleRpcQuery;
 }
 export declare abstract class RpcQueryBase extends Client {
@@ -52,7 +52,7 @@ export declare class SimpleRpcQuery extends RpcQueryBase {
     network: RpcNetwork;
     relay?: string | Buffer;
     query: RPCRequest;
-    options: RpcQueryOptions;
+    options?: RpcQueryOptions;
   });
   run(): this;
 }
