@@ -23,7 +23,7 @@ export class RpcNetwork extends Client {
             network: this._networkId,
         });
     }
-    simpleQuery(relay, query, data = {}, options = {}) {
+    simpleQuery({ relay, query, data = {}, options = {}, }) {
         return new SimpleRpcQuery({
             network: this,
             relay,
