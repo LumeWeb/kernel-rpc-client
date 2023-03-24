@@ -46,7 +46,7 @@ export class RpcNetwork extends Client {
     query: ClientRPCRequest;
     options?: RpcQueryOptions;
   }): SimpleRpcQuery {
-    return new SimpleRpcQuery({
+    return createSimpleRpcQuery({
       network: this,
       relay,
       query,
@@ -125,3 +125,7 @@ export class SimpleRpcQuery extends RpcQueryBase {
 }
 
 export const createClient = factory<RpcNetwork>(RpcNetwork, RPC_MODULE);
+const createSimpleRpcQuery = factory<SimpleRpcQuery>(
+  SimpleRpcQuery,
+  RPC_MODULE
+);
