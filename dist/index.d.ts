@@ -17,12 +17,10 @@ export declare class RpcNetwork extends Client {
   simpleQuery({
     relay,
     query,
-    data,
     options,
   }: {
     relay?: Buffer | string;
     query: ClientRPCRequest;
-    data: object | any[];
     options?: RpcQueryOptions;
   }): SimpleRpcQuery;
 }
