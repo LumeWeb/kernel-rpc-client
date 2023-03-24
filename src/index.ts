@@ -37,12 +37,17 @@ export class RpcNetwork extends Client {
       network: this._networkId,
     });
   }
-  public simpleQuery(
-    relay: Buffer | string,
-    query: ClientRPCRequest,
-    data: object | any[] = {},
-    options: RpcQueryOptions = {}
-  ): SimpleRpcQuery {
+  public simpleQuery({
+    relay,
+    query,
+    data = {},
+    options = {},
+  }: {
+    relay?: Buffer | string;
+    query: ClientRPCRequest;
+    data: object | any[];
+    options: RpcQueryOptions;
+  }): SimpleRpcQuery {
     return new SimpleRpcQuery({
       network: this,
       relay,
@@ -94,7 +99,7 @@ export abstract class RpcQueryBase extends Client {
 }
 
 export class SimpleRpcQuery extends RpcQueryBase {
-  protected _relay: string | Buffer;
+  protected _relay?: string | Buffer;
   constructor({
     network,
     relay,
@@ -102,7 +107,7 @@ export class SimpleRpcQuery extends RpcQueryBase {
     options,
   }: {
     network: RpcNetwork;
-    relay: string | Buffer;
+    relay?: string | Buffer;
     query: RPCRequest;
     options: RpcQueryOptions;
   }) {
