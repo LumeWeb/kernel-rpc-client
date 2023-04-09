@@ -1,5 +1,5 @@
 import { Client, factory } from "@lumeweb/libkernel-universal";
-const RPC_MODULE = "fABcMA-oh1MzTKyYCX3KUAG2f-tfGyxYF_tXjlv9jPyq3Q";
+const RPC_MODULE = "vAMBJclO_A-R5ufSl9ZmJsOA2Dgqdh2Jm-HkFKHy5vxBpg";
 export class RpcNetwork extends Client {
     _def;
     constructor(def = true) {
