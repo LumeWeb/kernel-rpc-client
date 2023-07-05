@@ -2,22 +2,31 @@
     "name": "@lumeweb/kernel-rpc-client",
     "version": "0.1.0",
     "type": "module",
-    "main": "dist/index.js",
-    "dependencies": {
-        "@lumeweb/libkernel-universal": "git+https://git.lumeweb.com/LumeWeb/libkernel-universal.git",
-        "@lumeweb/rpc-client": "git+https://git.lumeweb.com/LumeWeb/rpc-client.git",
-        "buffer": "^6.0.3",
-        "libkernel": "^0.1.48",
-        "libkmodule": "^0.2.53",
-        "libskynet": "^0.0.62"
+    "main": "lib/index.js",
+    "repository": {
+        "type": "git",
+        "url": "gitea@git.lumeweb.com:LumeWeb/kernel-rpc-client.git"
     },
     "devDependencies": {
-        "@lumeweb/cfg": "git+https://git.lumeweb.com/LumeWeb/cfg.git",
-        "@lumeweb/interface-relay": "git+https://git.lumeweb.com/LumeWeb/interface-relay.git",
-        "@types/b4a": "^1.6.0",
-        "@types/node": "^18.15.5",
-        "@types/node-cache": "^4.2.5",
-        "prettier": "^2.8.6",
-        "typescript": "^5.0.2"
+        "@lumeweb/node-library-preset": "^0.2.7",
+        "presetter": "*"
+    },
+    "readme": "ERROR: No README data found!",
+    "_id": "@lumeweb/kernel-rpc-client@0.1.0",
+    "scripts": {
+        "prepare": "presetter bootstrap",
+        "build": "run build",
+        "semantic-release": "semantic-release"
+    },
+    "dependencies": {
+        "@lumeweb/interface-relay": "^0.0.2-develop.1",
+        "@lumeweb/libkernel": "^0.1.0-develop.14",
+        "@lumeweb/rpc-client": "^0.0.2-develop.4"
+    },
+    "files": [
+        "lib"
+    ],
+    "publishConfig": {
+        "access": "public"
     }
 }

@@ -1,4 +1,4 @@
-import { ErrTuple } from "libskynet";
+import { ErrTuple } from "@lumeweb/libkernel";
 import type {
   RPCRequest,
   RPCResponse,
@@ -6,15 +6,15 @@ import type {
 } from "@lumeweb/interface-relay";
 import { RpcQueryOptions } from "@lumeweb/rpc-client";
 import { Buffer } from "buffer";
-import { Client, factory } from "@lumeweb/libkernel-universal";
+import { Client, factory } from "@lumeweb/libkernel/module";
 
 const RPC_MODULE = "fAAKlPuoD2FgKq27nhNILSmf7nTYmI9mMmOfTujwXma-1g";
 
 export class RpcNetwork extends Client {
   private _def: boolean;
 
-  constructor(def: boolean = true) {
-    super();
+  constructor(module: string, def: boolean = true) {
+    super(module);
     this._def = def;
   }
 
@@ -37,6 +37,7 @@ export class RpcNetwork extends Client {
       network: this._networkId,
     });
   }
+
   public simpleQuery({
     relay,
     query,
@@ -63,12 +64,13 @@ export abstract class RpcQueryBase extends Client {
   protected _queryType: string;
 
   constructor(
+    module: string,
     network: RpcNetwork,
     query: RPCRequest,
     options: RpcQueryOptions = {},
-    queryType: string
+    queryType: string,
   ) {
-    super();
+    super(module);
     this._network = network;
     this._query = query;
     this._options = options;
@@ -98,20 +100,25 @@ export abstract class RpcQueryBase extends Client {
 
 export class SimpleRpcQuery extends RpcQueryBase {
   protected _relay?: string | Buffer;
-  constructor({
-    network,
-    relay,
-    query,
-    options,
-  }: {
-    network: RpcNetwork;
-    relay?: string | Buffer;
-    query: RPCRequest;
-    options?: RpcQueryOptions;
-  }) {
-    super(network, query, options, "simpleQuery");
+
+  constructor(
+    module: string,
+    {
+      network,
+      relay,
+      query,
+      options,
+    }: {
+      network: RpcNetwork;
+      relay?: string | Buffer;
+      query: RPCRequest;
+      options?: RpcQueryOptions;
+    },
+  ) {
+    super(module, network, query, options, "simpleQuery");
     this._relay = relay;
   }
+
   public run(): this {
     this._promise = this.callModule(this._queryType, {
       relay: this._relay,
@@ -127,5 +134,5 @@ export class SimpleRpcQuery extends RpcQueryBase {
 export const createClient = factory<RpcNetwork>(RpcNetwork, RPC_MODULE);
 const createSimpleRpcQuery = factory<SimpleRpcQuery>(
   SimpleRpcQuery,
-  RPC_MODULE
+  RPC_MODULE,
 );
