@@ -8,7 +8,7 @@ import { RpcQueryOptions } from "@lumeweb/rpc-client";
 import { Buffer } from "buffer";
 import { Client, factory } from "@lumeweb/libkernel/module";
 
-const RPC_MODULE = "fAAKlPuoD2FgKq27nhNILSmf7nTYmI9mMmOfTujwXma-1g";
+const MODULE = "zduP1ZfjVbyTrNuJ6aCsRVSNkd4G26BEdZ9RpThBjcmfKfM2pG2YWLVubD-1g";
 
 export class RpcNetwork extends Client {
   private _def: boolean;
@@ -29,7 +29,7 @@ export class RpcNetwork extends Client {
       this._networkId = 1;
     } else {
       Promise.resolve()
-        .then(() => this.callModuleReturn(RPC_MODULE, "createNetwork"))
+        .then(() => this.callModuleReturn(MODULE, "createNetwork"))
         .then((ret: ErrTuple) => (this._networkId = ret[0]));
     }
 
@@ -131,8 +131,5 @@ export class SimpleRpcQuery extends RpcQueryBase {
   }
 }
 
-export const createClient = factory<RpcNetwork>(RpcNetwork, RPC_MODULE);
-const createSimpleRpcQuery = factory<SimpleRpcQuery>(
-  SimpleRpcQuery,
-  RPC_MODULE,
-);
+export const createClient = factory<RpcNetwork>(RpcNetwork, MODULE);
+const createSimpleRpcQuery = factory<SimpleRpcQuery>(SimpleRpcQuery, MODULE);
