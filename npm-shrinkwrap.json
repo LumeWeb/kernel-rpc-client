@@ -8,8 +8,8 @@
             "name": "@lumeweb/kernel-rpc-client",
             "version": "0.1.0",
             "dependencies": {
-                "@lumeweb/interface-relay": "^0.0.2-develop.1",
-                "@lumeweb/libkernel": "^0.1.0-develop.14",
+                "@lumeweb/interface-relay": "^0.0.2-develop.3",
+                "@lumeweb/libkernel": "^0.1.0-develop.15",
                 "@lumeweb/rpc-client": "^0.0.2-develop.4"
             },
             "devDependencies": {
@@ -1662,19 +1662,19 @@
             }
         },
         "node_modules/@lumeweb/interface-relay": {
-            "version": "0.0.2-develop.1",
-            "resolved": "https://registry.npmjs.org/@lumeweb/interface-relay/-/interface-relay-0.0.2-develop.1.tgz",
-            "integrity": "sha512-mlsOW4Wg6t4NhZJEWT+fr9gyswY7c6MAAz6/VpHE+5WnuvoFAwezw1JrnOYp8iFpmgtm7QbX2w3hHVOdvwMMhw==",
+            "version": "0.0.2-develop.3",
+            "resolved": "https://registry.npmjs.org/@lumeweb/interface-relay/-/interface-relay-0.0.2-develop.3.tgz",
+            "integrity": "sha512-whA528oFHlOmw7sUIHvyLP45d6HpNQTjKWl4bGvh8lDx1/Qv8SxXbJFo3UutkJIOtu68bYva0fPvBaOmKO0mnA==",
             "dependencies": {
                 "@lumeweb/relay-cfg": "0.1.9"
             }
         },
         "node_modules/@lumeweb/libkernel": {
-            "version": "0.1.0-develop.14",
-            "resolved": "https://registry.npmjs.org/@lumeweb/libkernel/-/libkernel-0.1.0-develop.14.tgz",
-            "integrity": "sha512-qp1g28lyO2Kt/0DtHAY/BX3ESmxTB9TNuZ+8wTKDjEbLM+hW0aCPdZFV+L3xXpd5fickcWMAAwuezvcAK5WD7Q==",
+            "version": "0.1.0-develop.15",
+            "resolved": "https://registry.npmjs.org/@lumeweb/libkernel/-/libkernel-0.1.0-develop.15.tgz",
+            "integrity": "sha512-nyMGYJPomCBlfXpUr65sWZxTKcH+gR9NehLAMeK5Hl01R4aTJcZqYbYA/rQVATGzrjJ6ZPoJojJovvk9fh/I1w==",
             "dependencies": {
-                "@lumeweb/libweb": "0.2.0-develop.21",
+                "@lumeweb/libweb": "0.2.0-develop.22",
                 "emittery": "^1.0.1"
             }
         },
@@ -1690,9 +1690,9 @@
             }
         },
         "node_modules/@lumeweb/libportal": {
-            "version": "0.2.0-develop.11",
-            "resolved": "https://registry.npmjs.org/@lumeweb/libportal/-/libportal-0.2.0-develop.11.tgz",
-            "integrity": "sha512-+/45DTu03KMbCkwv4vtKv6snD+r9EZPx4+RuInXyu39QZ6D7pcDosUqzCc5eY5AxzjztIMdVtV9w7qtvK5Oovw==",
+            "version": "0.2.0-develop.12",
+            "resolved": "https://registry.npmjs.org/@lumeweb/libportal/-/libportal-0.2.0-develop.12.tgz",
+            "integrity": "sha512-FKdMzeOvi8viXwFbKLeD7c4SadLDaz/ZvSLaAumuyXiJCKk0gVM0aPO8mTkibDtJG5JfeFHef0jI9aOSMYWfXw==",
             "dependencies": {
                 "@lumeweb/node-library-preset": "git+https://git.lumeweb.com/LumeWeb/node-library-preset.git",
                 "@noble/curves": "^1.1.0",
@@ -1724,12 +1724,12 @@
             }
         },
         "node_modules/@lumeweb/libweb": {
-            "version": "0.2.0-develop.21",
-            "resolved": "https://registry.npmjs.org/@lumeweb/libweb/-/libweb-0.2.0-develop.21.tgz",
-            "integrity": "sha512-YJLSGPq1TdRzjX1/e+65PJQ5Kzizk+ADskEMesCdONJR5vctP5pRdc16Cpl1bAETsPX2wpBtWCmbI2Rt3mna3A==",
+            "version": "0.2.0-develop.22",
+            "resolved": "https://registry.npmjs.org/@lumeweb/libweb/-/libweb-0.2.0-develop.22.tgz",
+            "integrity": "sha512-HKh0csOCC82vXqc0Keszymt4Mnu/xgD9GaBjarLclNkCK4mxxBmOuU9OmuOkANndQjl2dhMnmYJHT0bmseBj9Q==",
             "dependencies": {
                 "@lumeweb/community-portals": "^0.1.0-develop.6",
-                "@lumeweb/libportal": "^0.2.0-develop.11",
+                "@lumeweb/libportal": "^0.2.0-develop.12",
                 "@lumeweb/node-library-preset": "git+https://git.lumeweb.com/LumeWeb/node-library-preset.git",
                 "@noble/curves": "^1.1.0",
                 "@noble/hashes": "^1.3.1"
@@ -1777,6 +1777,14 @@
                 "binconv": "^0.2.0",
                 "hypercore-crypto": "^3.3.1",
                 "json-stringify-deterministic": "^1.0.8"
+            }
+        },
+        "node_modules/@lumeweb/rpc-client/node_modules/@lumeweb/interface-relay": {
+            "version": "0.0.2-develop.1",
+            "resolved": "https://registry.npmjs.org/@lumeweb/interface-relay/-/interface-relay-0.0.2-develop.1.tgz",
+            "integrity": "sha512-mlsOW4Wg6t4NhZJEWT+fr9gyswY7c6MAAz6/VpHE+5WnuvoFAwezw1JrnOYp8iFpmgtm7QbX2w3hHVOdvwMMhw==",
+            "dependencies": {
+                "@lumeweb/relay-cfg": "0.1.9"
             }
         },
         "node_modules/@nicolo-ribaudo/semver-v6": {
