@@ -8,7 +8,7 @@ import { RpcQueryOptions } from "@lumeweb/rpc-client";
 import { Buffer } from "buffer";
 import { Client, factory } from "@lumeweb/libkernel/module";
 
-const MODULE = "zduGZ14GbsfjRgA1qbbgb6Td9bJDbNbEC626tfoYJCT6Me66dyTJwHxHYb";
+const MODULE = "zduKiqnxCCMs6LQSVoqfeCc1XSFjhWSF9bhrbS6GfWfMEFSKTnmybJb82j";
 
 export class RpcNetwork extends Client {
   private _def: boolean;
