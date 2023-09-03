@@ -1,3 +1,5 @@
+## [0.0.2-develop.16](https://git.lumeweb.com/LumeWeb/kernel-rpc-client/compare/v0.0.2-develop.15...v0.0.2-develop.16) (2023-09-03)
+
 ## [0.0.2-develop.15](https://git.lumeweb.com/LumeWeb/kernel-rpc-client/compare/v0.0.2-develop.14...v0.0.2-develop.15) (2023-09-02)
 
 ## [0.0.2-develop.14](https://git.lumeweb.com/LumeWeb/kernel-rpc-client/compare/v0.0.2-develop.13...v0.0.2-develop.14) (2023-09-02)
