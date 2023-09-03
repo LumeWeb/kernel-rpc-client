@@ -19,8 +19,8 @@
     },
     "dependencies": {
         "@lumeweb/interface-relay": "^0.0.2-develop.3",
-        "@lumeweb/libkernel": "^0.1.0-develop.38",
-        "@lumeweb/rpc-client": "^0.0.2-develop.4"
+        "@lumeweb/libkernel": "^0.1.0-develop.39",
+        "@lumeweb/rpc-client": "^0.0.2-develop.6"
     },
     "files": [
         "lib"
